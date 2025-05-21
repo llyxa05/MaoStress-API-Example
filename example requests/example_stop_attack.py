@@ -1,7 +1,7 @@
 import requests
 
 def stop_attack(user, api_key, address):
-    url = "https://mao-stress.tech/api/stop.php"
+    url = "https://mao-stress.de/api/stop.php"
     params = {
         'user': user,
         'api_key': api_key,
